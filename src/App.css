@@ -1,0 +1,38 @@
+
+.search-box {
+  width: 65%;
+  margin: auto;
+}
+.inp2{
+  width: 70%;
+}
+#logo2{
+  width: 10%;
+}
+#navbar{
+  width: 90%;
+}
+.search{
+  margin-left: -12%;
+}
+.shadow{
+  width: 80%;
+}
+p{
+color: darkgray;
+cursor: pointer;
+margin-left: 1%;
+}
+h4{
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 1%;
+}
+h6, b{
+  margin-left: 1%;
+  text-overflow: clip;
+}
+b{
+  text-decoration: none;
+}
