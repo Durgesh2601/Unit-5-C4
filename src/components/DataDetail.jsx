@@ -16,9 +16,10 @@ export const DataDetail = () => {
             setData(res);
         })
     }
+    console.log(data);
     return (
         <div id="detailed-result">
-            <div className="title">{data.title}</div>
+            <div className="title"><h5>{data.data.title}</h5></div>
             
         </div>
     )

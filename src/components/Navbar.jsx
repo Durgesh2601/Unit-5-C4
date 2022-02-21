@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getDataLoading, getDataSuccess } from "../redux/action";
 export const Navbar = () => {
-    const {loading, result, error } = useSelector((store) => store.data);
+    const { loading } = useSelector((store) => store.data);
     const [text, setText] = useState("");
     const [res, setRes] = useState([]);
     const dispatch = useDispatch();
     useEffect(() => {
         getData();
-    },[])
+    }, [])
     const getData = () => {
         dispatch(getDataLoading());
         axios.get("https://fast-reef-22226.herokuapp.com/data").then(({data}) => {
@@ -21,6 +21,17 @@ export const Navbar = () => {
         axios.get(`https://fast-reef-22226.herokuapp.com/data?q=${text}`).then(({data}) => {
         setRes(data);
         })
+    }
+    const handleSort1 = (res) => {
+        const data = res.sort((a, b) => {
+            return b.title-a.tite});
+            console.log(data)
+            //setRes(data)
+    }
+    const handleSort2 = (res) => {
+        const data = res.sort((a, b) => {
+            return b.title-a.tite});
+        setRes(data);
     }
     return loading ? ("Loading...") : 
         <><div id="navbar">
@@ -34,7 +45,17 @@ export const Navbar = () => {
         </div>
       </nav>
     </div>
+   
     <div id="search-result" style={{visibility : res.length > 0 ? "visible" : "hidden"}}>Showing Results.. <br />
+    <div>
+    <button className="btn btn-outline-success" type="button" onClick={handleSort1}>Sort A-Z</button>
+    <button className="btn btn-outline-success" type="button" onClick={handleSort2}>Sort Z-A</button>
+    <button className="btn btn-outline-success" type="button">Sort by Date (asc)</button>
+    <button className="btn btn-outline-success" type="button">Sort by Date (desc)</button>
+    <button className="btn btn-outline-success" type="button">Sort by quality (asc)</button>
+    <button className="btn btn-outline-success" type="button">Sort by quality (desc)</button>
+    <button className="btn btn-outline-success" type="button">Filter Explicit </button>
+    </div>
         {res.map((e, i) => {
             return (
                 <div key={i} className="result shadow ms-3">

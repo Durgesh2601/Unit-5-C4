@@ -40,6 +40,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage" : ","
-
+  "homepage": ".",
+  "devDependencies": {
+    "@angular/cli": "^13.2.4"
+  }
 }
